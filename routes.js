@@ -6,6 +6,7 @@ let db = require("./db");
 
 router.get('/',(req,res)=>{
     res.render('pages/home');//posso omitir a extensão .ejs do home.ejs
+    res.send('Página de teste');
 });
 
 module.exports = router; 
