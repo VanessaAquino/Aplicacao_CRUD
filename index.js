@@ -1,8 +1,11 @@
 const express = require("express");
 const app = express();
+const routes = require("./routes");
 
 const port=3000;
 const address="localhost"; //localhost é o nome padrão do seu computador, ligado ao IP local 127.0.0.1
+
+app.use(routes)
 
 const server = app.listen(port,address,()=>{
     let host = server.address().address;
