@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/VanessaAquino/Aplicacao_CRUD#readme",
   "dependencies": {
+    "Faker": "^0.7.2",
     "express": "^4.17.1"
   }
 }
