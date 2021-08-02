@@ -1,0 +1,26 @@
+{
+  "name": "aplicacao_crud",
+  "version": "0.1.0",
+  "description": "Aplicação para Cadastro de usuários",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VanessaAquino/Aplicacao_CRUD.git"
+  },
+  "keywords": [
+    "node",
+    "web",
+    "app",
+    "user",
+    "managing"
+  ],
+  "author": "Vanessa Rolim de Aquino",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/VanessaAquino/Aplicacao_CRUD/issues"
+  },
+  "homepage": "https://github.com/VanessaAquino/Aplicacao_CRUD#readme"
+}
