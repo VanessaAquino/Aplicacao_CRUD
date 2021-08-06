@@ -1,0 +1,17 @@
+body{
+    background-color:gainsboro;
+
+}
+
+#title p{
+    font-size:50px;
+    color:mintcream;
+    background-color:purple;
+    margin:0;
+    padding:0;
+    left:-10;
+
+
+}
+
+
