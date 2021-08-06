@@ -18,12 +18,15 @@ router.use(express.static('public'));
 
 //Exemplode Rotas: 
 /*
+
 http://localhost:3030/css
 http://localhost:3030/images
 http://localhost:3030/index.html
+
 / = http://localhost:3030/
 /about = http://localhost:3030/about
 /curriculo =  http://localhost:3030/cadastro
+
 */
 router.get('/',(req,res)=>{
     res.render('pages/home');
