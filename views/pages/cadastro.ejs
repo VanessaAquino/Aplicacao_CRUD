@@ -1,5 +1,59 @@
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 <%- contentFor( 'body') %>
 
-<div class="jumbotron text-center">
-    <p>Cadastro</p>
+  <img id="line2" src="images/enfeite_05.png" alt="Imagem ilustrativa de médico" >
+
+<section>
+<div class="content2">
+    <div id="textbox">
+    <img id="nempresa" src="images/nomeempresa.png" alt="Imagem ilustrativa de médico" >
+    <h1>Pacientes</h1><br>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Email</th>
+            <th scope="col">Login</th>
+            <th scope="col">Senha</th>
+            <th scope="col">Alterar Paciente</th>
+            <th scope="col">Excluir Paciente</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+            <td>@123</td>
+            <td><button type="button" class="btn btn-success" id="alterar-botao">Alterar</button></td>
+            <td><button type="button" class="btn btn-danger" id="remover-botao">Remover</button></td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+            <td>@456</td>
+            <td><button type="button" class="btn btn-success" id="alterar-botao">Alterar</button></td>
+            <td><button type="button" class="btn btn-danger" id="remover-botao">Remover</button></td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+            <td>@789</td>
+            <td><button type="button" class="btn btn-success" id="alterar-botao">Alterar</button></td>
+            <td><button type="button" class="btn btn-danger" id="remover-botao">Remover</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
 </div>
+
+</section>
