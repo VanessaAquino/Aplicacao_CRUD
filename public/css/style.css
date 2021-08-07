@@ -2,12 +2,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap');
 
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    background:#f2f4f6;
- 
+    background:hsl(210, 18%, 96%);
+    z-index:1;
+    
    
     
 
@@ -15,7 +17,7 @@
 
 .nav{
     margin-left:8.5%;
-    width:100%;
+    
 
 
 
@@ -31,8 +33,28 @@
 
 .img{
     margin-left: 25%;
-    margin-top: -4%;
+    margin-top: -9%;
+
     
+}
+
+#subtitulo{
+    max-width:280px;
+    max-height:150px;
+    width: auto;
+    height: auto;
+
+}
+
+#line{
+
+    position: relative;
+    top: 275px;
+    left: 65px;
+    z-index:2;
+    background-color: none;
+
+
 }
 
 section{
@@ -43,7 +65,7 @@ section{
     display: flex;
     justify-content: space-between;
     align-items: left;
-    background:#f2f4f6;
+
 
 
 }
@@ -76,6 +98,5 @@ p{
     font-family: 'Source Sans Pro', sans-serif;
 
 }
-
 
 
