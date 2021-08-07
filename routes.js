@@ -38,7 +38,7 @@ router.get('/about',(req,res)=>{
 });
 
 router.post('/cadastro/remove',(req,res)=>{
-    let usuario={name: "wellington", email: "wwagner@virtual.ufc.br"};
+    let usuario={name: "", email: ""};
     /* for(let cont=1;cont<=6;cont++){
         usuarios.push({name:faker.name.findName(),email: faker.internet.email(),avatar: faker.image.image()});
     } */
@@ -54,7 +54,7 @@ router.get('/cadastro',(req,res)=>{
 });
 
 router.get('/cadastro/insert',(req,res)=>{
-    let usuario={name: "wellington", email: "wwagner@virtual.ufc.br"};
+    let usuario={name: "", email: ""};
     /* for(let cont=1;cont<=6;cont++){
         usuarios.push({name:faker.name.findName(),email: faker.internet.email(),avatar: faker.image.image()});
     } */
