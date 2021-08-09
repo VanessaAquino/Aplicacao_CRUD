@@ -15,41 +15,31 @@
           <tr>
             <th scope="col">#</th>
             <th scope="col">Nome</th>
+            <th scope="col">Endereço</th>
             <th scope="col">Email</th>
             <th scope="col">Login</th>
-            <th scope="col">Senha</th>
+            <th scope="col">Idade</th>
+            <th scope="col">Altura</th>
             <th scope="col">Alterar Paciente</th>
             <th scope="col">Excluir Paciente</th>
           </tr>
         </thead>
         <tbody>
+          <% let linkRemove="/cadastro/remove/"; %>
+          <% let linkUpdate="/cadastro/update/"; %>
+          <% for(let index=0; index<users.length;index++){ %>
           <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@123</td>
-            <td><button type="button" class="btn btn-success" id="alterar-botao">Alterar</button></td>
-            <td><button type="button" class="btn btn-danger" id="remover-botao">Remover</button></td>
+            <th scope="row"><%- index %></th>
+            <td><%= users[index].name %></td>
+            <td><%= users[index].endereco %></td>
+            <td><%= users[index].email %></td>
+            <td><%= users[index].login %></td>
+            <td><%= users[index].idade %></td>
+            <td><%= users[index].altura %></td>
+            <td><a href="<%= linkUpdate + "id=" + index %>"><button type="button" class="btn btn-success" id="alterar-botao">Alterar</button></a></td>
+            <td><a href="<%= linkRemove + "id=" + index %>"><button type="button" class="btn btn-danger" id="remover-botao">Remover</button></a></td>
           </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            <td>@456</td>
-            <td><button type="button" class="btn btn-success" id="alterar-botao">Alterar</button></td>
-            <td><button type="button" class="btn btn-danger" id="remover-botao">Remover</button></td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-            <td>@789</td>
-            <td><button type="button" class="btn btn-success" id="alterar-botao">Alterar</button></td>
-            <td><button type="button" class="btn btn-danger" id="remover-botao">Remover</button></td>
-          </tr>
+          <% } %>
         </tbody>
       </table>
     </div>

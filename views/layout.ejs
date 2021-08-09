@@ -13,27 +13,7 @@
 
 <body>
 
-  <div class="text-center" id="loading">
-    <div class="spinner-border" role="status">
-      <span class="sr-only">Loading...</span>
-    </div>
-  </div>
-
-    <header>
-        <ul class="nav">
-            <li class="nav-item">
-              <a class="nav-link" href="/">HOME</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/about">SOBRE</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/cadastro">CADASTRO</a>
-            </li>
-          </ul>
-    </header>
-
-
+    <%- include('pages/header') %>
     <main>
         <div class="container">
             <%- body %>
