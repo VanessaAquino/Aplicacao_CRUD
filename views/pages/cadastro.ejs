@@ -13,7 +13,7 @@
     <table class="table">
         <thead>
           <tr>
-            <th scope="col">#</th>
+            <th scope="col">ID</th>
             <th scope="col">Nome</th>
             <th scope="col">Endereço</th>
             <th scope="col">Email</th>
@@ -27,19 +27,58 @@
         <tbody>
           <% let linkRemove="/cadastro/remove/"; %>
           <% let linkUpdate="/cadastro/update/"; %>
-          <% for(let index=0; index<users.length;index++){ %>
-          <tr>
-            <th scope="row"><%- index %></th>
-            <td><%= users[index].name %></td>
-            <td><%= users[index].endereco %></td>
-            <td><%= users[index].email %></td>
-            <td><%= users[index].login %></td>
-            <td><%= users[index].idade %></td>
-            <td><%= users[index].altura %></td>
-            <td><a href="<%= linkUpdate + "id=" + index %>"><button type="button" class="btn btn-success" id="alterar-botao">Alterar</button></a></td>
-            <td><a href="<%= linkRemove + "id=" + index %>"><button type="button" class="btn btn-danger" id="remover-botao">Remover</button></a></td>
-          </tr>
-          <% } %>
+          <% if(users.length >0){%>
+            <% for(let index=0;index<users.length;index++){ %>
+            <tr>
+              <td data-index-row="<%=index%>">
+                <span  class="show"><%=index %></span>
+                  <input type="text" name="id"  class="hidden" value="<%= index %>">
+              </td>
+              <td data-index-row="<%=index%>">
+                  <span  class="show"><%= users[index].name %></span>
+                  <input type="text" name="name"  class="hidden" value="<%= users[index].name %>">
+              </td>
+              <td data-index-row="<%=index%>">
+                  <span  class="show"><%= users[index].endereco %></span>
+                  <input type="text" name="endereco"  class="hidden" value="<%= users[index].endereco %>">
+              </td>
+              <td data-index-row="<%=index%>">
+                  <span  class="show"><%= users[index].email %></span>
+                  <input type="text" name="email"  class="hidden" value="<%= users[index].email %>">
+                  
+              </td>
+              <td data-index-row="<%=index%>">
+                  <span  class="show"><%= users[index].login %></span>
+                  <input type="text" name="login"  class="hidden" value="<%= users[index].login %>">
+                  
+              </td>
+              <td data-index-row="<%=index%>">
+                  <span  class="show"><%= users[index].idade %></span>
+                  <input type="text" name="idade" class="hidden" value="<%= users[index].idade %>">
+                  
+              </td>
+              <td data-index-row="<%=index%>">
+                <span  class="show"><%= users[index].altura %></span>
+                <input type="text" name="altura" class="hidden" value="<%= users[index].altura %>">
+                
+            </td>
+            <td data-index-row="<%=index%>" class="hidden" data-index-row="<%=index%>"><input type="button" value="Atualizar" class="hidden" ></td>
+            
+             <!-- a funcao update()  foi criada no arquivo script.js presente no diretorio public. Ela fará a modificação dos itens e envio dos dados na forma de uma string para o servidor usando como rta /cadastro/update/ -->
+             <td  data-index-row="<%=index%>">
+              <a href="#" onclick="update('<%=index%>','<%= linkUpdate %>')" class="show"><button type="button" class="btn btn-success" id="alterar-botao">Alterar</button></a>  
+            </td> 
+            <!-- para passar parametros para uma rota criada basta usar o delimitador "/" entre os valores dos parametros e defini-los no arquivo de rotas usando ":" para separar cada valor, seguido de um nome que identificarar esse valor. Exemplo: /cadastro/remove/:id -->
+            <td  data-index-row="<%= index %>">
+                <a href="#" class="show" onclick="remove('<%=index %>','<%=linkRemove%>')"><button type="button" class="btn btn-danger" id="remover-botao">Remover</button></a>
+            </td>
+
+            
+         </tr>
+         <% } %>
+         <% }else{%>
+             <tr><td colspan="7"><p class="bg-info text-white">Nenhum dado cadastrado</p></td></tr>
+         <%}  %>
         </tbody>
       </table>
     </div>

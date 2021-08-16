@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const app = express();
 
+
 // const faker = require("faker");
 
 // let db = require("./db");
@@ -38,22 +39,39 @@ router.get('/about',(req,res)=>{
 });
 
 router.get('/cadastro/remove/:id',(req,res)=>{
-    res.send('Remoção realizada com sucesso');
+    console.log("aqui");
+    let item =req.body.id; //pega o valor passado através do parâmetro id e atribui a variável item. 
+    console.log(req.body)
+    users.splice(item,1); //este método permite adicionar ou remover um item do vetor em uma dada posição. 
+    //res.render('pages/cadastro',{users:users});
+    console.log(users);
+    res.sendStatus(200); //envia mensagem 200 significando que as modificacoes foram ok
 
 });
 
 router.get('/cadastro/update/:id',(req,res)=>{
-    res.send('Atualização realizada com sucesso');
+        //substitui os valores armazenados no item do vetror dado por id, por valores fornecidos como parametro vindos do navegador.
+    //recebe dados do cliente na forma de um objeto JSON
+
+    users[req.body.id].id=req.body.id;
+    users[req.body.id].name=req.body.name;
+    users[req.body.id].endereco=req.body.endereco;
+    users[req.body.id].email=req.body.email;
+    users[req.body.id].login=req.body.login;
+    users[req.body.id].idade=req.body.idade;
+    users[req.body.id].altura=req.body.altura;
+    
+    console.log("Dados recebidos: ",req.body);//mostra no console do servidor os dados recebidos
+
+    res.sendStatus(200); //envia mensagem 200 significando que as modificacoes foram ok
 
 });
 
 router.get('/cadastro',(req,res)=>{ //callback - função que trata determinado evento
-    let users = [
-        {name:"Ana Lúcia Mendes Paiva", endereco: "Rua Dom Jeronimo, 769", email:"luciluci@gmail.com", login:"lucinha40", idade:"18", altura:"1,83cm"},
-        {name:"Marcos Anderson Silva", endereco: "Rua Armindo, 79", email:"marcosilva63@gmail.com",login:"marcos123", idade:"25", altura:"1,65cm"},
-        {name:"Julia Almeida Teixeira", endereco: "Rua 789, 79", email:"texeira20@gmail.com",login:"Juju789", idade:"40", altura:"1,73"}
-    ];
-    res.render('pages/cadastro',{users});
+
+     //a funcao render pode receber um pametro na forma de objeto literal
+    //no caso, ela irá receber um objeto com campo chamado users e com valor igual ao vetor users
+    res.render('pages/cadastro',{users:users}); 
 });
 
 router.get('/cadastro/insert',(req,res)=>{

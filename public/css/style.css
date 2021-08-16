@@ -169,3 +169,10 @@ p{
     
 
 }
+
+.show{
+    display:inline-flexbox;
+}
+.hidden{
+    display:none;
+}
