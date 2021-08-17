@@ -13,7 +13,7 @@ global.users =[
     {name:"Marcos Anderson Silva", endereco: "Rua Armindo, 79", email:"marcosilva63@gmail.com",login:"marcos123", idade:"25", altura:"1,65cm"},
     {name:"Julia Almeida Teixeira", endereco: "Rua 789, 79", email:"texeira20@gmail.com",login:"Juju789", idade:"40", altura:"1,73"}];
 
-//tiva uso do EJS e do Express-ejs-layouts
+//ativa uso do EJS e do Express-ejs-layouts
 app.set('view engine', 'ejs');
 app.use(expressLayouts);
 

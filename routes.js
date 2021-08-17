@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const app = express();
 
 
 // const faker = require("faker");
@@ -38,18 +37,47 @@ router.get('/about',(req,res)=>{
     res.render('pages/about');
 });
 
-router.get('/cadastro/remove/:id',(req,res)=>{
-    console.log("aqui");
-    let item =req.body.id; //pega o valor passado através do parâmetro id e atribui a variável item. 
-    console.log(req.body)
-    users.splice(item,1); //este método permite adicionar ou remover um item do vetor em uma dada posição. 
-    //res.render('pages/cadastro',{users:users});
-    console.log(users);
-    res.sendStatus(200); //envia mensagem 200 significando que as modificacoes foram ok
+router.post('/cadastro/remove',(req,res)=>{
+    //let item =req.body.id; //pega o valor passado através do parâmetro id e atribui a variável item. 
+    let name = req.body.name;
 
+    if(users.length==0){
+        console.log("Erro: Não há elemento a ser removido!");
+        return res.status(400).json({
+            status:'error',
+            error:`Removed element: ${name}`
+        });
+
+    } else {
+        for(let cont=0;cont<users.length;cont++){
+            if(users[cont].name==name){
+                users.splice(cont,1);
+                console.log("Elemento Removido: ",name);
+                return res.status(200).json({
+                    status:'sucess',
+                    data:users
+                });
+                //res.send(JSON.stringify({sucess:`Elemento removido com sucesso: ${name}`}));
+            } else if(cont==users.length-1){
+                console.log("Erro ao remover elemento: ",name);
+                return res.status(400).json({
+                    status:'error',
+                    error:`Removed element: ${name}`
+                });
+            }
+        }
+    }
+    
+    
+    //users.splice(item,1); //este método permite adicionar ou remover um item do vetor em uma dada posição. 
+    //res.render('pages/cadastro',{users:users});
+    //res.sendStatus(200); //envia mensagem 200 significando que as modificacoes foram ok
+    //res.send(JSON.stringify({sucess:`Elemento removido com sucesso: ${name}`}));
+    //console.log("Elemento Removido: ",name);
+    
 });
 
-router.get('/cadastro/update/:id',(req,res)=>{
+router.get('/cadastro/update',(req,res)=>{
         //substitui os valores armazenados no item do vetror dado por id, por valores fornecidos como parametro vindos do navegador.
     //recebe dados do cliente na forma de um objeto JSON
 
@@ -74,16 +102,16 @@ router.get('/cadastro',(req,res)=>{ //callback - função que trata determinado 
     res.render('pages/cadastro',{users:users}); 
 });
 
-router.get('/cadastro/insert',(req,res)=>{
+/*router.get('/cadastro/insert',(req,res)=>{
     let usuario={name: "", email: ""};
     /* for(let cont=1;cont<=6;cont++){
         usuarios.push({name:faker.name.findName(),email: faker.internet.email(),avatar: faker.image.image()});
     } */
 
-    let result = db.inserirDado(usuariusers);
-    console.log(result);
+    //let result = db.inserirDado(usuariusers);
+    //console.log(result);
     //res.render('pages/insert',{result});
-});
+//});
 
 router.get('/cadastro/list',(req,res)=>{
 

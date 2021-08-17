@@ -1,4 +1,4 @@
-
+let cadastro;
 
 function update(index,link){
     //seleciona todas as tags que sejam td 
@@ -17,7 +17,7 @@ function update(index,link){
 
     linkUpdate.className='hidden';
     linkRemove.className='hidden';
-    tds[lenTds-2].className='show';
+    tds[lenTds-2].className='show'; //mostra butao de envio
 
      //esconde todos os campos de exibição de dados do cadastro
     for(let cont=0;cont<spans.length;cont++){
@@ -38,7 +38,7 @@ function update(index,link){
     button.addEventListener('click',()=>{
         const http = new XMLHttpRequest(); //cria um objeto para requisição ao servidor
         const url=link;
-        let data = {id:"",name:"",endereco:"",email:"",login:"",idade:"",altura:""};
+        let data = {id:"",name:"",email:"",address:"",age:"",height:"",vote:""};
         let dataToSend;
 
 
@@ -46,7 +46,6 @@ function update(index,link){
         http.open("POST",link,true); //abre uma comunicação com o servidor através de uma requisição POST
 
         http.setRequestHeader('Content-Type','application/json'); //constroi um cabecalho http para envio dos dados
-
 
         //preenche um objeto com o indice da linha da tabela e os valores dos campos input do tipo text
         data.id = index;
@@ -110,14 +109,75 @@ function update(index,link){
 
 }
 
-function remove(index,link){
 
-    // para ser feito
+function remove(index,name,link){ //(index,link)
+   //esconde todos os campos de exibição de dados do cadastro
+    // for(let cont=0;cont<tds.length;cont++){
+    //     if(tds[cont].className=="show"){
+    //         tds[cont].className="hidden";
+    //     } else{
+    //         tds[cont].className="show";
+    //     }
+    // }
 
+    //escuta se o botao foi clicado
+
+    const http = new XMLHttpRequest(); //cria um objeto para requisição ao servidor
+    const url=link;
+
+    http.open("POST",link,true); //abre uma comunicação com o servidor através de uma requisição POST
+    http.setRequestHeader('Content-Type','application/json'); //constroi um cabecalho http para envio dos dados
+
+    //dataToSend = JSON.stringify({id:index}); //transforma o objeto literal em uma string JSON que é a representação em string de um objeto JSON
+    dataToSend = JSON.stringify({name:name}); //transforma o objeto literal em uma string JSON que é a representação em string de um objeto JSON
+
+    http.send(dataToSend);//envia dados para o servidor na forma de JSON
+
+    /* este codigo abaixo foi colocado para que a interface de cadastro so seja modificada quando se receber um aviso do servidor que a modificacao foi feita com sucesso. No caso o aviso vem na forma do codigo 200 de HTTP: OK */
+
+    /*
+    readyState:
+    0: request not initialized
+    1: server connection established
+    2: request received
+    3: processing request
+    4: request finished and response is ready
+
+    status:
+    200: "OK"
+    403: "Forbidden"
+    404: "Page not found"
+    */
+
+    // baseado nos valores acima apresentados, o codigo abaixo mostra o que foi enviado pelo servidor como resposta ao envio de dados. No caso, se o request foi finalizado e o response foi recebido, a mensagem recebida do servidor eh mostrada no console do navegador. esse codigo foi feito apenas para verificar se tudo ocorreu bem no envio
+
+    http.onload = ()=>{ 
+        let resp = JSON.parse(http.response);
+        //seleciona todas as tags que sejam td 
+        let tr = document.querySelector(`table#list > tbody > tr[data-index-row='${index}']`);
+
+        if (http.readyState === 4 && http.status === 200) {
+            tr.remove();
+            console.log(`Item ${index} removido com sucesso!`);
+
+        } else {
+            console.log(`Erro durante a tentativa de remoção do usuário: ${name}! Código do Erro: ${http.status}`); 
+        }
+        
+
+    }
 }
    
+function add(data){
+    //Adiciona um dado novo
+}
 
    
+
+
+
+
+
 
 
 
