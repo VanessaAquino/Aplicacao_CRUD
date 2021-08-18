@@ -38,7 +38,7 @@ function update(index,link){
     button.addEventListener('click',()=>{
         const http = new XMLHttpRequest(); //cria um objeto para requisição ao servidor
         const url=link;
-        let data = {id:"",name:"",email:"",address:"",age:"",height:"",vote:""};
+        let data = {id:"",name:"",endereco:"",email:"",login:"",idade:"",altura:""};
         let dataToSend;
 
 
@@ -48,6 +48,7 @@ function update(index,link){
         http.setRequestHeader('Content-Type','application/json'); //constroi um cabecalho http para envio dos dados
 
         //preenche um objeto com o indice da linha da tabela e os valores dos campos input do tipo text
+        console.log(index);
         data.id = index;
         data.name = inputs[0].value;
         data.endereco = inputs[1].value;
@@ -62,10 +63,13 @@ function update(index,link){
 
         /* este codigo abaixo foi colocado para que a interface de cadastro so seja modificada quando se receber um aviso do servidor que a modificacao foi feita com sucesso. No caso o aviso vem na forma do codigo 200 de HTTP: OK */
 
-        http.onload = ()=>{                
+        http.onload = ()=>{
+
+           // if (http.readyState === 4 && http.status === 200) {           
                 for(let cont=0;cont<spans.length;cont++){
                     if(spans[cont].className=="hidden"){
                         spans[cont].innerHTML = inputs[cont].value;
+                        console.log(inputs[cont].value);
                         spans[cont].className="show";
                     } else{
                         spans[cont].className="hidden";
@@ -82,6 +86,10 @@ function update(index,link){
                 linkUpdate.className='show';
                 linkRemove.className='show';
                 tds[lenTds-2].className='hidden';
+
+            //} else {
+               // console.log('Os dados não fora alterados.Error:',http.responseText);
+            //}
         }
     /*
     readyState:
@@ -123,7 +131,7 @@ function remove(index,name,link){ //(index,link)
     //escuta se o botao foi clicado
 
     const http = new XMLHttpRequest(); //cria um objeto para requisição ao servidor
-    const url=link;
+    const url="/cadastro/remove";
 
     http.open("POST",link,true); //abre uma comunicação com o servidor através de uma requisição POST
     http.setRequestHeader('Content-Type','application/json'); //constroi um cabecalho http para envio dos dados

@@ -45,7 +45,7 @@ router.post('/cadastro/remove',(req,res)=>{
         console.log("Erro: Não há elemento a ser removido!");
         return res.status(400).json({
             status:'error',
-            error:`Removed element: ${name}`
+            error: 'Elemento não existe'
         });
 
     } else {
@@ -77,19 +77,22 @@ router.post('/cadastro/remove',(req,res)=>{
     
 });
 
-router.get('/cadastro/update',(req,res)=>{
+router.post('/cadastro/update',(req,res)=>{
         //substitui os valores armazenados no item do vetror dado por id, por valores fornecidos como parametro vindos do navegador.
     //recebe dados do cliente na forma de um objeto JSON
 
-    users[req.body.id].id=req.body.id;
     users[req.body.id].name=req.body.name;
     users[req.body.id].endereco=req.body.endereco;
     users[req.body.id].email=req.body.email;
     users[req.body.id].login=req.body.login;
     users[req.body.id].idade=req.body.idade;
     users[req.body.id].altura=req.body.altura;
+
+    console.log(users[req.body.id]);
     
     console.log("Dados recebidos: ",req.body);//mostra no console do servidor os dados recebidos
+
+    console.log(users[req.body.id]);
 
     res.sendStatus(200); //envia mensagem 200 significando que as modificacoes foram ok
 
