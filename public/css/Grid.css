@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=STIX+Two+Text:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap');
+
+
+#home {
+    display: grid;
+    grid-template-columns: 1fr min-content;
+    height: 100%;
+    width: 100%;
+}
+
+#home-content {
+    display: grid;
+    justify-items: start;
+    grid-template-columns: 1fr minmax(500px, 80%);
+    grid-template-rows: 1fr max-content max-content 1fr 1fr;
+}
+
+#title-container {
+    grid-row: 2/3;
+    grid-column: 2/3;
+    display: flex;
+    justify-content: space-between;
+    height: fit-content;
+    width: 100%;
+    max-width: 615px;
+}
+
+#title-line {
+    margin-left: 15px;
+    min-width: 200px;
+    width: 100%;
+    max-width: 700px;
+}
+
+#home-content>h1 {
+    grid-row: 3/4;
+    grid-column: 2/3;
+    color: #204969;
+    font-size: 5.5rem;
+    font-family: 'STIX Two Text', serif;
+}
+
+#home-content>p {
+    width: 370px;
+    grid-row: 4/5;
+    grid-column: 2/3;
+    text-align: left;
+}
+
+
+
+#cadastro {
+    display: grid;
+    grid-template-columns: 1fr 1048px;
+    height: 100%;
+    width: 100%;
+
+}
+
+
+#cadastro-content {
+    display: grid;
+    justify-items: start;
+    grid-template-columns: 1fr minmax(500px, 80%);
+    grid-template-rows: 1fr max-content max-content 1fr 1fr;
+
+    
+   
+}
+
+#cadastro-content>h1 {
+    grid-row: 3/4;
+    grid-column: 2/3;
+    color: #204969;
+    font-size: 5.5rem;
+    font-family: 'STIX Two Text', serif;}
+
+
+#list {
+    grid-row: 4/4;
+    grid-column: 2/3;
+       
+        
+    
+    }
+
+#cadastro-content>p {
+    width: 370px;
+    grid-row: 4/5;
+    grid-column: 2/3;
+    text-align: left;
+}
+
+
+

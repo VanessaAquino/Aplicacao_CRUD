@@ -3,11 +3,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap');
 
 
+body{
+    background-color:hsl(210, 18%, 96%);
+
+}
+
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    background:hsl(210, 18%, 96%);
+    
     z-index:1;
     
    
@@ -15,39 +21,6 @@
 
 }
 
-.nav{
-    margin-left:8.3%;
-    
-
-
-
-
-}
-
-.nav-link{
-  
-    color: #204969;
-    font-family: 'Source Sans Pro', sans-serif;
-    position: relative;
-    top:100px;
-
-
-}
-
-.img{
-    margin-left: 25%;
-    margin-top: -9%;
-
-    
-}
-
-
-.img2{
-    margin-left: 40%;
-    margin-top: -9%;
-
-    
-}
 
 #subtitulo{
     max-width:280px;
@@ -77,19 +50,6 @@
 
 }
 
-#line2{
-    max-width:624px;
-    max-height:130px;
-    width: auto;
-    height: auto;
-    position: relative;
-    top: 275px;
-    left: -100px;
-    z-index:2;
-    background-color: none;
-
-
-}
 
 section{
     position: relative;
@@ -111,22 +71,6 @@ section{
     
 }
 
-.content{
-    position:relative;
-    width:-100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-
-}
-
-.content h1{
-    color: #204969;
-    font-family: 'STIX Two Text', serif;
-    font-size: 100px;
-
-}
 
 .content2{
     position:relative;

@@ -1,0 +1,25 @@
+header {
+    display: grid !important;
+    grid-template-columns: 1fr 1048px;
+    place-items: center;
+    top: 175px;
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+}
+
+nav {
+    display: grid !important;
+    grid-template-columns: 1fr minmax(500px, 80%);
+    width: 100%;
+}
+
+.nav {
+    grid-column: 2/3;
+}
+
+.nav-link {
+    color: #204969;
+    font-family: 'Source Sans Pro', sans-serif;
+    position: relative;
+}

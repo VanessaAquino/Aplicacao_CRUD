@@ -1,14 +1,10 @@
-<link rel="stylesheet" href="/css/style.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 <%- contentFor( 'body') %>
 
-  <img id="line2" src="images/enfeite_05.png" alt="Imagem ilustrativa de médico" >
-
-<section>
-<div class="content2">
-    <div id="textbox">
-    <img id="nempresa" src="images/nomeempresa.png" alt="Imagem ilustrativa de médico" >
+  
+<section id="cadastro">
+  <article id="cadastro-content">
+   
     <h1>Pacientes</h1><br>
     <table class="table" id="list">
         <thead>
@@ -29,7 +25,7 @@
           <% let linkUpdate="/cadastro/update/"; %>
           <% if(users.length >0){%>
             <% for(let index=0;index<users.length;index++){ %>
-            <tr>
+             <tr data-index-row="<%=index%>"> <!--Para que funcione a selecao de linha para remocao, o tr tambvem deve ter o data-index-row -->
               <td data-index-row="<%=index%>">
                 <span  class="show"><%=index %></span>
                   <input type="text" name="id"  class="hidden" value="<%= index %>">
@@ -70,7 +66,7 @@
             </td> 
             <!-- para passar parametros para uma rota criada basta usar o delimitador "/" entre os valores dos parametros e defini-los no arquivo de rotas usando ":" para separar cada valor, seguido de um nome que identificarar esse valor. Exemplo: /cadastro/remove/:id -->
             <td  data-index-row="<%= index %>">
-                <a href="#" class="show" onclick="remove('<%=index %>','<%=linkRemove%>')"><button type="button" class="btn btn-danger" id="remover-botao">Remover</button></a>
+                <a href="#" class="show" onclick="remove('<%=index %>','<%=users[index].name%>','<%=linkRemove%>')"><button type="button" class="btn btn-danger" id="remover-botao">Remover</button></a>
             </td>
 
             
@@ -81,8 +77,6 @@
          <%}  %>
         </tbody>
       </table>
+    </article>
     </div>
-
-</div>
-
 </section>

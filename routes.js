@@ -45,7 +45,7 @@ router.post('/cadastro/remove',(req,res)=>{
         console.log("Erro: Não há elemento a ser removido!");
         return res.status(400).json({
             status:'error',
-            error: 'Elemento não existe'
+            error: `Didn't remove element: ${name}`
         });
 
     } else {
@@ -62,7 +62,7 @@ router.post('/cadastro/remove',(req,res)=>{
                 console.log("Erro ao remover elemento: ",name);
                 return res.status(400).json({
                     status:'error',
-                    error:`Removed element: ${name}`
+                    error:`Didn't remove element: ${name}`
                 });
             }
         }
@@ -92,7 +92,7 @@ router.post('/cadastro/update',(req,res)=>{
     
     console.log("Dados recebidos: ",req.body);//mostra no console do servidor os dados recebidos
 
-    console.log(users[req.body.id]);
+    console.log("Usuario inserido: ",users[req.body.id]);
 
     res.sendStatus(200); //envia mensagem 200 significando que as modificacoes foram ok
 

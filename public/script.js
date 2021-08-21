@@ -20,7 +20,7 @@ function update(index,link){
     tds[lenTds-2].className='show'; //mostra butao de envio
 
      //esconde todos os campos de exibição de dados do cadastro
-    for(let cont=0;cont<spans.length;cont++){
+    for(let cont=1;cont<spans.length;cont++){ //comecei do 1 para que nao mexam no id por ser este o indice do vetor
         if(spans[cont].className=="show"){
             spans[cont].className="hidden";
         } else{
@@ -28,7 +28,7 @@ function update(index,link){
         }
     }
     //mostra os campos de preenchimento para o cadastro
-    for(let cont=0;cont<inputs.length;cont++){
+    for(let cont=1;cont<inputs.length;cont++){ //comecei do 1 para que nao mexam no id por ser este o indice do vetor
         if(inputs[cont].className=="hidden"){
             inputs[cont].className="show";
         }
@@ -48,14 +48,14 @@ function update(index,link){
         http.setRequestHeader('Content-Type','application/json'); //constroi um cabecalho http para envio dos dados
 
         //preenche um objeto com o indice da linha da tabela e os valores dos campos input do tipo text
-        console.log(index);
+       
         data.id = index;
-        data.name = inputs[0].value;
-        data.endereco = inputs[1].value;
-        data.email = inputs[2].value;
-        data.login = inputs[3].value;
-        data.idade = inputs[4].value;
-        data.altura = inputs[5].value;
+        data.name = inputs[1].value; //O erro estava aqui. estava com indice 0. deve ser indice 1 e os demais devem ser colocados na ordem
+        data.endereco = inputs[2].value;
+        data.email = inputs[3].value;
+        data.login = inputs[4].value;
+        data.idade = inputs[5].value;
+        data.altura = inputs[6].value;
 
         dataToSend = JSON.stringify(data); //transforma o objeto literal em uma string JSON que é a representação em string de um objeto JSON
 
@@ -66,7 +66,7 @@ function update(index,link){
         http.onload = ()=>{
 
            // if (http.readyState === 4 && http.status === 200) {           
-                for(let cont=0;cont<spans.length;cont++){
+                for(let cont=1;cont<spans.length;cont++){//comecei do 1 para que nao mexam no id por ser este o indice do vetor
                     if(spans[cont].className=="hidden"){
                         spans[cont].innerHTML = inputs[cont].value;
                         console.log(inputs[cont].value);
@@ -77,7 +77,7 @@ function update(index,link){
                 }
     
                 //esconde os campos de preenchimento para o cadastro
-                for(let cont=0;cont<inputs.length;cont++){
+                for(let cont=1;cont<inputs.length;cont++){//comecei do 1 para que nao mexam no id por ser este o indice do vetor
                     if(inputs[cont].className=="show"){
                         inputs[cont].className="hidden";
                     }
