@@ -11,22 +11,11 @@ const utils = require("./utils");
 
 const faker = require("faker"); //modulo usado para criar dados fakes aleatorios para testes
 
-let toggleBol=true;
-
-
-global.users =[];
-
-for (let cont=0;cont<20;cont++){
-    users.push({
-    name:faker.name.findName(),
-    endereco:faker.endereco.streetAddress(),
-    email:faker.internet.email(),
-    email:faker.internet.userName(),
-    idade:utils.getRandomByInterval(15,50,true),
-    altura:utils.getRandomByInterval(1.50,1.70,false).toFixed(2),
-    vote:toggleBol});
-    toggleBol=!toggleBol;
-}
+// a palavra reservada global cria uma variável ou objeto global para o sistemas. Ele pode ser visto em qualquer parta do código ou dos módulos do projeto. Assim, Users podem ser vistos tanto aqui no index.js quanto em routes.js
+global.users =[
+    {name:"Ana Lúcia Mendes Paiva", endereco: "Rua Dom Jeronimo, 769", email:"luciluci@gmail.com", login:"lucinha40", idade:"18", altura:"1,83cm"},
+    {name:"Marcos Anderson Silva", endereco: "Rua Armindo, 79", email:"marcosilva63@gmail.com",login:"marcos123", idade:"25", altura:"1,65cm"},
+    {name:"Julia Almeida Teixeira", endereco: "Rua 789, 79", email:"texeira20@gmail.com",login:"Juju789", idade:"40", altura:"1,73"}];
 
 //ativa uso do EJS e do Express-ejs-layouts
 app.set('view engine', 'ejs');
