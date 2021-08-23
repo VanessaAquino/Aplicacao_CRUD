@@ -90,7 +90,7 @@ section{
 }
 
 
-p{
+p,label{
     color:#818181;
     font-family: 'Source Sans Pro', sans-serif;
 
@@ -119,4 +119,18 @@ p{
 }
 .hidden{
     display:none;
+}
+
+#form{
+
+    width: 800px;
+    grid-row: 4/4;
+    grid-column: 2/3;
+    
+    
+}
+
+#envio-cadastro{
+
+    width:800px;
 }

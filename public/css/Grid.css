@@ -93,5 +93,37 @@
     text-align: left;
 }
 
+#inserir {
+    display: grid;
+    grid-template-columns: 1fr 1048px;
+    height: 100%;
+    width: 100%;
 
+}
+
+
+#inserir-content {
+    display: grid;
+    justify-items: start;
+    grid-template-columns: 1fr minmax(500px, 80%);
+    grid-template-rows: max-content 1fr;
+
+    
+   
+}
+
+#inserir-content>h1 {
+    grid-row: 3/4;
+    grid-column: 2/3;
+    color: #204969;
+    font-size: 5.5rem;
+    font-family: 'STIX Two Text', serif;}
+
+
+#inserir-content>p {
+        width: 370px;
+        grid-row: 4/5;
+        grid-column: 2/3;
+        text-align: left;
+    }
 

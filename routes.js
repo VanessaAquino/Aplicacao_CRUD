@@ -31,6 +31,10 @@ router.get('/',(req,res)=>{
     res.render('pages/home');
 });
 
+router.get('/cadastro-pacientes',(req,res)=>{ //callback - função que trata determinado evento
+   res.render('pages/cadastro-pacientes'); 
+});
+
 router.get('/about',(req,res)=>{
 
     res.render('pages/about');

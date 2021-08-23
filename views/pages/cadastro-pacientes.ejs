@@ -1,0 +1,47 @@
+<%- contentFor( 'body') %>
+
+  
+<section id="inserir">
+    <article id="inserir-content">
+     
+      <h1>Cadastrar</h1><br> 
+      <form action="/cadastro/add" method="post" id="form">
+        <div class="form-group">
+            <label for="_name">Nome:</label>
+            <input type="text" name="_name" id="_name" class="form-control" required>
+        </div>
+    
+        <div class="form-group">
+          <label for="_endereco">Endereço:</label>
+          <input type="text" name="_endereco" id="_endereco" class="form-control" required>
+      </div>
+    
+        <div class="form-group">
+            <label for="_email">E-mail:</label>
+            <input type="text" name="_email" id="_email" class="form-control" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="_email">Login:</label>
+          <input type="text" name="_login" id="_login" class="form-control" required>
+      </div>
+    
+        <div class="form-group">
+            <label for="_altura">Altura:</label>
+            <input type="text" name="_altura" id="_altura" class="form-control" required>
+        </div>
+    
+        <div class="form-group">
+            <label for="_idade">Idade:</label>
+            <input type="text" name="_idade" id="_idade" class="form-control" required>
+        </div>
+    
+        <div class="form-group">
+            <input type="submit" value="Enviar"  class="btn btn-success" id="envio-cadastro">
+        </div>
+    </form>
+      </article>
+      </div>
+  </section>
+
+  
