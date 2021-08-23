@@ -119,5 +119,22 @@ router.get('/cadastro/list',(req,res)=>{
 
 });
 
+router.post('/cadastro/add',(req,res)=>{
+    let user={name:"",endereco:"",email:"",login:"",idade:"",altura:""};
+
+    user.name = req.body._name;
+    user.endereco = req.body._endereco;
+    user.email = req.body._email;
+    user.login = req.body._login;
+    user.idade = req.body._idade;
+    user.altura = req.body._altura;
+
+    users.push(user);
+    console.log("Usuário cadastrado: ",user);
+    console.log("Lista dos usuários: ",users)
+    res.sendStatus(200);
+
+});
+
 //Essa linha permite que este código seja exportado como um módulo e possa ser usado em outras partes da aplicação.
 module.exports = router;
