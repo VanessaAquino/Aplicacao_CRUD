@@ -108,17 +108,6 @@ router.get('/cadastro',(req,res)=>{ //callback - função que trata determinado 
     res.render('pages/cadastro',{users:users}); 
 });
 
-/*router.get('/cadastro/insert',(req,res)=>{
-    let usuario={name: "", email: ""};
-    /* for(let cont=1;cont<=6;cont++){
-        usuarios.push({name:faker.name.findName(),email: faker.internet.email(),avatar: faker.image.image()});
-    } */
-
-    //let result = db.inserirDado(usuariusers);
-    //console.log(result);
-    //res.render('pages/insert',{result});
-//});
-
 router.get('/cadastro/list',(req,res)=>{
 
 });
@@ -135,8 +124,8 @@ router.post('/cadastro/add',(req,res)=>{
 
     users.push(user);
     console.log("Usuário cadastrado: ",user);
-    console.log("Lista dos usuários: ",users)
-    res.sendStatus(200);
+    console.log("Lista dos usuários: ",users);
+    res.render('pages/cadastro-pacientes'); 
 
 });
 
